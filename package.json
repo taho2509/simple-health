@@ -1,0 +1,19 @@
+{
+  "name": "simple-health",
+  "version": "0.0.1",
+  "description": "A simple api with a health endpoint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "health"
+  ],
+  "author": "Angel Tabares taho2509@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^8.0.8",
+    "koa": "^2.11.0"
+  }
+}

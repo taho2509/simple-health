@@ -1,0 +1,32 @@
+---
+kind: pipeline
+name: production
+
+steps:
+  - name: publish
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: angelpeanuthub/simplehealth
+      dockerfile: Dockerfile
+      tags: production-${DRONE_BUILD_NUMBER}
+
+  - name: deploy
+    image: nytimes/drone-gke
+    expand_env_vars: true
+    environment:
+      TOKEN:
+        from_secret: GOOGLE_CREDENTIALS
+      PLUGIN_CLUSTER: peanut-talk-cluster
+      PLUGIN_ZONE: us-west1-a
+      PLUGIN_NAMESPACE: default
+      IMAGE: angelpeanuthub/simplehealth:production-${DRONE_BUILD_NUMBER}
+
+trigger:
+  branch:
+    - master
+  event:
+    - push
