@@ -1,13 +1,16 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-health
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      name: simple-health
   template:
     metadata:
       labels: # labels to select/identify the deployment
-        app: simple-health
+        name: simple-health
     spec: # pod spec
       containers:
         - name: simple-health
@@ -25,7 +28,7 @@ metadata:
 spec:
   # type: LoadBalancer
   selector:
-    app: simple-health
+    name: simple-health
   ports:
     - name: http-port
       protocol: TCP

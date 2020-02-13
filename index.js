@@ -4,8 +4,8 @@ const Router = require('@koa/router');
 const app = new Koa();
 const router = new Router();
 
-router.get('/health', (ctx, next) => {
-  ctx.body = {"message": "v0.0.1 Up"};
+router.get('/simple/health', (ctx, next) => {
+  ctx.body = {"message": "simple v0.0.1 Up"};
 });
 
 app.use(router.routes());
