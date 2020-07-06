@@ -13,7 +13,7 @@
   "author": "Angel Tabares taho2509@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "@koa/router": "^9.1.0",
+    "@koa/router": "^9.3.1",
     "koa": "^2.13.0"
   }
 }
