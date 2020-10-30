@@ -5,7 +5,7 @@ const app = new Koa();
 const router = new Router();
 
 router.get('/health', (ctx, next) => {
-  ctx.body = {"message": "v0.0.2 Up"};
+  ctx.body = {"message": "v0.0.1 Up"};
 });
 
 app.use(router.routes());
